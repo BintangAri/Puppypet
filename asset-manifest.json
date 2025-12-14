@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/BintangAri/Puppypet/static/css/main.9f416344.css",
-    "main.js": "/BintangAri/Puppypet/static/js/main.362f3b39.js",
-    "static/js/453.c3cb847d.chunk.js": "/BintangAri/Puppypet/static/js/453.c3cb847d.chunk.js",
-    "index.html": "/BintangAri/Puppypet/index.html",
-    "main.9f416344.css.map": "/BintangAri/Puppypet/static/css/main.9f416344.css.map",
-    "main.362f3b39.js.map": "/BintangAri/Puppypet/static/js/main.362f3b39.js.map",
-    "453.c3cb847d.chunk.js.map": "/BintangAri/Puppypet/static/js/453.c3cb847d.chunk.js.map"
+    "main.css": "/Puppypet/static/css/main.9f416344.css",
+    "main.js": "/Puppypet/static/js/main.55cb81b8.js",
+    "static/js/453.c3cb847d.chunk.js": "/Puppypet/static/js/453.c3cb847d.chunk.js",
+    "index.html": "/Puppypet/index.html",
+    "main.9f416344.css.map": "/Puppypet/static/css/main.9f416344.css.map",
+    "main.55cb81b8.js.map": "/Puppypet/static/js/main.55cb81b8.js.map",
+    "453.c3cb847d.chunk.js.map": "/Puppypet/static/js/453.c3cb847d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9f416344.css",
-    "static/js/main.362f3b39.js"
+    "static/js/main.55cb81b8.js"
   ]
 }
