@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+/* --- 1. LAYOUT UTAMA --- */
+body {
+  margin: 0;
+  font-family: 'Varela Round', sans-serif;
+  overflow: hidden;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fce4ec; /* Pink Pastel */
+  transition: background-color 0.8s ease;
+}
+
+.night-mode { background-color: #2c2c54; }
+
+.game-card {
+  background: white;
+  padding: 30px;
+  border-radius: 40px;
+  box-shadow: 0 15px 50px rgba(255, 105, 180, 0.3);
+  text-align: center;
+  width: 340px;
+  border: 6px solid #fff;
+}
+
+.title {
+  color: #ff69b4;
+  margin: 0 0 10px 0;
+  font-size: 26px;
+  text-shadow: 2px 2px 0px #ffe6ea;
+}
+
+.message-box {
+  min-height: 24px; color: #888; font-size: 14px; margin-bottom: 20px; font-weight: bold;
+}
+
+/* --- 2. PUPPY CSS ART --- */
+.puppy-wrapper {
+  position: relative;
+  width: 220px;
+  height: 240px;
+  margin: 0 auto 10px auto;
+  display: flex;
+  justify-content: center;
+}
+
+:root {
+  --skin: #fff0f5;    /* Lavender Blush */
+  --ear: #f48fb1;     /* Pink Telinga */
+  --nose: #e91e63;    /* Pink Tua Hidung */
+  --dark: #2d1b2e;    /* Mata/Mulut */
+}
+
+/* LAYER 1: TELINGA (Di Belakang Kepala) */
+.ears {
+  width: 70px;
+  height: 110px;
+  background-color: var(--ear);
+  position: absolute;
+  top: 40px;
+  z-index: 1; 
+  border-radius: 40px 40px 50px 50px;
+  border: 3px solid #fff;
+}
+.ears.left { left: -10px; transform: rotate(-15deg); transform-origin: top right; }
+.ears.right { right: -10px; transform: rotate(15deg); transform-origin: top left; }
+
+/* LAYER 1: EKOR */
+.tail {
+  position: absolute; bottom: 20px; right: 25px;
+  width: 25px; height: 70px;
+  background-color: var(--skin);
+  border-radius: 20px;
+  z-index: 1;
+  transform-origin: bottom center;
+  transform: rotate(45deg);
+  border: 3px solid #fff;
+}
+.tail.wagging { animation: wag 0.3s infinite alternate ease-in-out; }
+@keyframes wag { from { transform: rotate(35deg); } to { transform: rotate(65deg); } }
+
+/* LAYER 2: BADAN & KAKI */
+.body {
+  position: absolute; bottom: 10px;
+  width: 120px; height: 100px;
+  background-color: var(--skin);
+  border-radius: 50px 50px 35px 35px;
+  z-index: 5;
+  box-shadow: inset 0 -5px 10px rgba(0,0,0,0.05);
+}
+
+.legs { position: absolute; bottom: 10px; width: 120px; z-index: 6; }
+.leg {
+  position: absolute; bottom: 0; width: 45px; height: 35px;
+  background: white; border-radius: 25px 25px 10px 10px;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
+}
+.leg.left { left: 15px; } .leg.right { right: 15px; }
+
+/* LAYER 3: KEPALA */
+.head {
+  position: absolute; top: 30px;
+  width: 170px; height: 150px;
+  background-color: var(--skin);
+  border-radius: 48%;
+  z-index: 10; 
+  box-shadow: 0 4px 10px rgba(233, 30, 99, 0.1);
+}
+
+.face { position: relative; top: 55px; }
+
+/* MATA NORMAL */
+.eyes { display: flex; justify-content: space-between; padding: 0 45px; }
+.eye {
+  width: 20px; height: 26px;
+  background-color: var(--dark);
+  border-radius: 50%;
+  position: relative;
+}
+.eye::after { 
+  content: ''; width: 8px; height: 8px; background: white;
+  border-radius: 50%; position: absolute; top: 5px; left: 5px;
+}
+
+/* HIDUNG & MULUT */
+.snout { margin-top: 8px; }
+.nose { width: 24px; height: 16px; background-color: var(--nose); border-radius: 12px; margin: 0 auto; }
+.mouth {
+  width: 24px; height: 10px;
+  border-bottom: 4px solid var(--dark);
+  border-radius: 0 0 15px 15px; margin: 2px auto;
+}
+
+/* PIPI */
+.cheeks { position: absolute; top: 40px; width: 100%; }
+.cheeks::before, .cheeks::after {
+  content: ''; width: 25px; height: 15px; background: #ffcdd2;
+  opacity: 0.6; position: absolute; border-radius: 50%;
+}
+.cheeks::before { left: 20px; } .cheeks::after { right: 20px; }
+
+/* --- EKSPRESI WAJAH --- */
+
+/* 1. TIDUR */
+.head.mood-sleeping .eye { height: 10px; background: transparent; border-bottom: 4px solid var(--dark); border-radius: 0; }
+.head.mood-sleeping .eye::after { display: none; }
+
+/* 2. SEDIH */
+.head.mood-sad .mouth { border-bottom: none; border-top: 4px solid var(--dark); border-radius: 15px 15px 0 0; margin-top: 10px; }
+
+/* 3. SUPER HAPPY (^ ^) + PIPI MERONA */
+.head.mood-super-happy .eye {
+  background-color: transparent;
+  height: 12px; width: 20px;
+  border-top: 4px solid var(--dark);
+  border-radius: 50% 50% 0 0; /* Lengkungan Atas */
+  border-bottom: none;
+}
+.head.mood-super-happy .eye::after { display: none; }
+
+.head.mood-super-happy .cheeks::before,
+.head.mood-super-happy .cheeks::after {
+  background: #ff4081; /* Pipi merah banget */
+  opacity: 0.8;
+  animation: blushPulse 0.8s infinite alternate;
+}
+@keyframes blushPulse { from { transform: scale(1); } to { transform: scale(1.2); } }
+
+/* --- AKSESORIS & EFEK --- */
+
+/* PITA */
+.bow { position: absolute; top: 160px; z-index: 20; }
+.bow::before, .bow::after {
+  content: ''; position: absolute; width: 35px; height: 35px;
+  background-color: #d81b60; border-radius: 50% 50% 10px 10px; top: -10px;
+}
+.bow::before { left: -30px; transform: rotate(-30deg); }
+.bow::after { left: -5px; transform: rotate(30deg); }
+
+/* FLOATING HEARTS (Animasi Hati) */
+/* --- FLOATING HEARTS (DIPERBAIKI) --- */
+.hearts-effect {
+  position: absolute;
+  top: 0px; /* Turunkan posisi agar tidak kepotong di atas */
+  width: 100%;
+  height: 100%; /* Area efek memenuhi container */
+  z-index: 50; /* Pastikan paling atas */
+  pointer-events: none;
+}
+
+.heart-particle {
+  position: absolute;
+  font-size: 28px; /* Hati lebih besar */
+  opacity: 0;
+  animation: floatUp 2s infinite ease-in-out;
+  text-shadow: 0 2px 5px rgba(255, 105, 180, 0.5); /* Tambah bayangan biar kontras */
+}
+
+/* Atur posisi hati kiri, tengah, kanan */
+.h1 { left: 15%; top: 50px; animation-delay: 0s; }
+.h2 { left: 45%; top: 20px; animation-delay: 0.5s; }
+.h3 { right: 15%; top: 50px; animation-delay: 1s; }
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(0.5);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1; /* Muncul cepat */
+  }
+  100% {
+    transform: translateY(-60px) scale(1.3); /* Naik ke atas */
+    opacity: 0;
+  }
+}
+
+/* --- UI CONTROLS --- */
+.controls-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+button {
+  background: #ff80ab; color: white; border: none; padding: 12px;
+  border-radius: 20px; font-weight: bold; cursor: pointer;
+  transition: transform 0.1s; box-shadow: 0 4px 0 #f06292;
+}
+button:hover { background: #ff4081; transform: translateY(-2px); }
+button:active { transform: translateY(2px); box-shadow: none; }
+.btn-bow { grid-column: span 2; background: #ec407a; box-shadow: 0 4px 0 #c2185b; }
+
+.mini-stats { display: flex; justify-content: space-around; font-size: 12px; color: #aaa; font-weight: 800; }
+
+.bounce .head, .bounce .ears, .bounce .body { animation: jump 0.5s ease; }
+@keyframes jump { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
